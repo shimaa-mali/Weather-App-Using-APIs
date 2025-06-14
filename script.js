@@ -3,9 +3,9 @@ document.addEventListener('DOMContentLoaded', function () {
     const searchBtn = document.getElementById('search-btn');
     const weatherInfo = document.getElementById('weather-info');
 
-    // Replace this with your real API key from OpenWeatherMap
+   // Free API
     const API_KEY = 'b374527c751bfbb7c0bfef797982c680';
-    const BASE_URL = 'https://api.openweathermap.org/data/2.5/weather?lat={lat}&lon={lon}&appid={API key}';
+    const BASE_URL = 'https://api.openweathermap.org/data/2.5/weather';
 
     searchBtn.addEventListener('click', getWeather);
     cityInput.addEventListener('keypress', function (e) {
@@ -33,7 +33,7 @@ document.addEventListener('DOMContentLoaded', function () {
             const data = await response.json();
             displayWeather(data);
         } catch (error) {
-            showError(error.message);
+            showError(error.message || 'City not found');
             console.error('Error:', error);
         }
     }
